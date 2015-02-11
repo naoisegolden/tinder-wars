@@ -1,10 +1,11 @@
-<html>
+<html ng-app="angularApp">
 <head>
   <title>Tinder</title>
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
   <script src="bower_components/angular/angular.js"></script>
+  <script src="javascript/controllers.js"></script>
 </head>
-<body>
+<body ng-controller="PeopleListCtrl">
   <div class="container">
     <div class="header">
       <h3>Tinder.js</h3>
@@ -16,16 +17,18 @@
     </div>
 
     <div class="row">
-      <div class="col-sm-4 col-md-4">
+
+      <div class="col-sm-4 col-md-4" ng-repeat="person in people">
         <div class="thumbnail">
-          <img src="">
+          <img ng-src="{{person.avatar}}">
           <div class="caption">
-            <h3>Name 1</h3>
-            <p>Description 1</p>
+            <h3>{{person.name}}</h3>
+            <p>{{person.description}}</p>
             <p><a href="#" class="btn btn-primary" role="button">Yes</a> <a href="#" class="btn btn-default" role="button">Nope</a></p>
           </div>
         </div>
       </div>
+
     </div>
   </div>
 
