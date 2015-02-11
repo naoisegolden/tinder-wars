@@ -14,5 +14,8 @@
   "bugs": {
     "url": "https://github.com/naoisegolden/angular-app/issues"
   },
-  "homepage": "https://github.com/naoisegolden/angular-app"
+  "homepage": "https://github.com/naoisegolden/angular-app",
+  "devDependencies": {
+    "grunt": "^0.4.5"
+  }
 }
