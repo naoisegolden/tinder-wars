@@ -25,11 +25,7 @@ module.exports = function(grunt) {
     processhtml: {
       dist: {
         options: {
-          process: true,
-          data: {
-            title: 'My Angular app',
-            message: 'This is production distribution'
-          }
+          process: true
         },
         files: {
           'build/index.html': ['index.html']
@@ -53,9 +49,6 @@ module.exports = function(grunt) {
             processors: [
               require('autoprefixer-core')({browsers: 'last 1 version'}).postcss,
             ]
-            // processors: [
-            //   autoprefixer({ browsers: ['last 2 version'] }).postcss
-            // ]
         },
         dist: { src: 'build/*.css' }
     }
