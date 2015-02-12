@@ -18,7 +18,7 @@ module.exports = function(grunt) {
     sass: {
       dist: {
         files: {
-         'build/main.css': 'sass/main.scss'
+         'build/main.css': ['sass/main.scss']
         }
       }
     },
@@ -47,6 +47,17 @@ module.exports = function(grunt) {
             base: 'build'
         },
         src: ['**']
+    },
+    postcss: {
+        options: {
+            processors: [
+              require('autoprefixer-core')({browsers: 'last 1 version'}).postcss,
+            ]
+            // processors: [
+            //   autoprefixer({ browsers: ['last 2 version'] }).postcss
+            // ]
+        },
+        dist: { src: 'build/*.css' }
     }
   });
 
@@ -56,8 +67,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-processhtml');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-gh-pages');
+  grunt.loadNpmTasks('grunt-postcss');
 
   // Custom tasks
   grunt.registerTask('deploy', ['gh-pages']);
-  grunt.registerTask('default', ['uglify', 'sass', 'copy', 'processhtml']);
+  grunt.registerTask('default', ['uglify', 'sass', 'copy', 'processhtml', 'postcss']);
 };
