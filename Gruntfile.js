@@ -41,6 +41,12 @@ module.exports = function(grunt) {
         src: 'bower_components/bootstrap/dist/css/bootstrap.min.css',
         dest: 'build/bootstrap.min.css',
       }
+    },
+    'gh-pages': {
+        options: {
+            base: 'build'
+        },
+        src: ['**']
     }
   });
 
@@ -49,8 +55,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-processhtml');
   grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-gh-pages');
 
   // Custom tasks
-  grunt.registerTask('build', ['processhtml']);
-  grunt.registerTask('default', ['uglify', 'sass', 'copy']);
+  grunt.registerTask('deploy', ['gh-pages']);
+  grunt.registerTask('default', ['uglify', 'sass', 'copy', 'processhtml']);
 };
