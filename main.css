@@ -13,54 +13,59 @@ body {
     width: 49%; }
 
 .swipe {
-  transform-origin: 50% 80%;
   -webkit-transform-origin: 50% 80%;
-  animation-fill-mode: forwards;
-  -webkit-animation-fill-mode: forwards; }
+          transform-origin: 50% 80%; }
 
 .swipe-right {
   -webkit-animation: swipe-right .8s ease-in-out;
-  animation: swipe-right .8s ease-in-out; }
+          animation: swipe-right .8s ease-in-out; }
 
 .swipe-left {
   -webkit-animation: swipe-left .8s ease-in-out;
-  animation: swipe-left .8s ease-in-out; }
+          animation: swipe-left .8s ease-in-out; }
 
 @-webkit-keyframes swipe-right {
   0% {
-    transform: translateX(0%) rotate(0deg);
+    -webkit-transform: translateX(0%) rotate(0deg);
+            transform: translateX(0%) rotate(0deg);
     opacity: 1;
     display: block; }
   100% {
-    transform: translateX(30%) rotate(20deg);
+    -webkit-transform: translateX(30%) rotate(20deg);
+            transform: translateX(30%) rotate(20deg);
     opacity: 0;
     display: none; } }
+
 @keyframes swipe-right {
   0% {
-    transform: translateX(0%) rotate(0deg);
+    -webkit-transform: translateX(0%) rotate(0deg);
+            transform: translateX(0%) rotate(0deg);
     opacity: 1;
     display: block; }
   100% {
-    transform: translateX(30%) rotate(20deg);
+    -webkit-transform: translateX(30%) rotate(20deg);
+            transform: translateX(30%) rotate(20deg);
     opacity: 0;
     display: none; } }
 @-webkit-keyframes swipe-left {
   0% {
-    transform: translateX(0%) rotate(0deg);
+    -webkit-transform: translateX(0%) rotate(0deg);
+            transform: translateX(0%) rotate(0deg);
     opacity: 1;
     display: block; }
   100% {
-    transform: translateX(-30%) rotate(-20deg);
+    -webkit-transform: translateX(-30%) rotate(-20deg);
+            transform: translateX(-30%) rotate(-20deg);
     opacity: 0;
     display: none; } }
 @keyframes swipe-left {
   0% {
-    transform: translateX(0%) rotate(0deg);
+    -webkit-transform: translateX(0%) rotate(0deg);
+            transform: translateX(0%) rotate(0deg);
     opacity: 1;
     display: block; }
   100% {
-    transform: translateX(-30%) rotate(-20deg);
+    -webkit-transform: translateX(-30%) rotate(-20deg);
+            transform: translateX(-30%) rotate(-20deg);
     opacity: 0;
     display: none; } }
-
-/*# sourceMappingURL=main.css.map */
