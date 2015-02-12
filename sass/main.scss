@@ -1,8 +1,40 @@
-$color: #ff00ff;
+@import 'mixins';
 
-body {
-  p {
-    font-weight: bold;
-    color: $color;
+.card {
+  position: absolute;
+
+  .description {
+    margin-bottom: 2em;
+    height: 10em;
   }
+}
+
+.actions {
+  text-align: center;
+
+  .btn {
+    width: 49%;
+  }
+}
+
+.swipe {
+  transform-origin: 50% 80%;
+  -webkit-transform-origin: 50% 80%;
+}
+
+.swipe-right {
+  @include animation('swipe-right .8s ease-in-out');
+}
+.swipe-left {
+  @include animation('swipe-left .8s ease-in-out');
+}
+
+@include keyframes(swipe-right) {
+  0%   { transform: translateX(0%) rotate(0deg); opacity: 1; display: block; }
+  100% { transform: translateX(30%) rotate(20deg); opacity: 0; display: none; }
+}
+
+@include keyframes(swipe-left) {
+  0%   { transform: translateX(0%) rotate(0deg); opacity: 1; display: block; }
+  100% { transform: translateX(-30%) rotate(20deg); opacity: 0; display: none; }
 }
