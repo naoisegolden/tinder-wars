@@ -6,11 +6,13 @@ module.exports = function(grunt) {
     pkg: grunt.file.readJSON('package.json'),
     uglify: {
       options: {
+        mangle: false,
         banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
       },
-      build: {
-        src: 'javascript/*.js',
-        dest: 'build/main.min.js'
+      my_target: {
+        files: {
+          'build/main.min.js': ['javascript/*.js', 'bower_components/bower-tinder-js/*.js']
+        }
       }
     },
     sass: {
@@ -19,13 +21,36 @@ module.exports = function(grunt) {
          'build/main.css':'sass/main.scss'
         }
       }
+    },
+    processhtml: {
+      dist: {
+        options: {
+          process: true,
+          data: {
+            title: 'My Angular app',
+            message: 'This is production distribution'
+          }
+        },
+        files: {
+          'build/index.html': ['index.html']
+        }
+      }
+    },
+    copy: {
+      main: {
+        src: 'bower_components/bootstrap/dist/css/bootstrap.min.css',
+        dest: 'build/bootstrap.min.css',
+      }
     }
   });
 
-  // Load the plugin that generates css from sass.
+  // Load the plugin tasks
   grunt.loadNpmTasks('grunt-contrib-sass');
-  // Load the plugin that provides the "uglify" task.
   grunt.loadNpmTasks('grunt-contrib-uglify');
-  // Default task(s).
-  grunt.registerTask('default', ['uglify', 'sass']);
+  grunt.loadNpmTasks('grunt-processhtml');
+  grunt.loadNpmTasks('grunt-contrib-copy');
+
+  // Custom tasks
+  grunt.registerTask('build', ['processhtml']);
+  grunt.registerTask('default', ['uglify', 'sass', 'copy']);
 };
