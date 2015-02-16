@@ -1,6 +1,13 @@
 body {
   background: url("data:image/svg+xml;utf8,\a   <svg xmlns='http://www.w3.org/2000/svg' version='1.1'\a        height='50px' width='120px'>\a     <text x='0' y='15' fill='grey' font-size='20'>No people left!</text>\a   </svg>") center center no-repeat; }
 
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 5px; }
+
 .card {
   position: absolute; }
   .card .description {
